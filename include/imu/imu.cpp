@@ -10,12 +10,6 @@ public:
     sensors_event_t a, g, temp;
 
     void initIMU(){
-        /*
-        Serial.begin(115200);
-        while (!Serial)
-            delay(10); // will pause Zero, Leonardo, etc until serial console opens
-        */
-
         Serial.println("Adafruit MPU6050 test!");
         // Try to initialize!
         if (!mpu.begin()) {

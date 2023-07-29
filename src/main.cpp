@@ -35,8 +35,7 @@ void loop()
    //delay(1000);
    //screen.clearDisplay();
    imu.getEvents(); 
-   float mag = balance.balanceController(imu.a.acceleration,imu.g.gyro);
-   //mag = 1;
+   float mag = balance.balanceController(imu.a.acceleration,imu.g.gyro,true);
    wheel1.setSpeed(mag);
    wheel2.setSpeed(mag);
 
@@ -62,7 +61,5 @@ void loop()
 
       screen.writeText(imu.temp.temperature,0,40);
       */
-      //screen.writeText(mag,0,0);
-      //screen.writeText(balance.arccos(imu.a.acceleration.z/-9.81),0,20);
    }
 }
