@@ -5,10 +5,9 @@
 #include "../include/imu/imu.cpp"
 #include "../include/wheel/wheel.cpp"
 #include "../include/control/balance.cpp"
+#include "../include/wifi/wifi.cpp"
 
 #define DEBUG false
-#define IR_INPUT 13
-
 
 //SCREEN screen;
 IMU imu;
@@ -28,6 +27,7 @@ void setup()
    wheel1.initWheel();
    wheel2.initWheel();
 
+   setupWifiControl();
 }
 
 void loop()
@@ -38,6 +38,8 @@ void loop()
    float mag = balance.balanceController(imu.a.acceleration,imu.g.gyro,true);
    wheel1.setSpeed(mag);
    wheel2.setSpeed(mag);
+
+   loopWifiControl();
 
    if (DEBUG){
       Serial.printf("Accel.x: %f\n",imu.a.acceleration.x);
