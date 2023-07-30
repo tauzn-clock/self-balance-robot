@@ -5,7 +5,7 @@
 #include "../include/imu/imu.cpp"
 #include "../include/wheel/wheel.cpp"
 #include "../include/control/balance.cpp"
-#include "../include/wifi/wifi.cpp"
+#include "../include/wifi/wifiButton.cpp"
 
 #define DEBUG false
 
@@ -27,7 +27,7 @@ void setup()
    wheel1.initWheel();
    wheel2.initWheel();
 
-   setupWifiControl();
+   setupWifi();
 }
 
 void loop()
@@ -39,7 +39,7 @@ void loop()
    wheel1.setSpeed(mag);
    wheel2.setSpeed(mag);
 
-   loopWifiControl();
+   loopWifi();
 
    if (DEBUG){
       Serial.printf("Accel.x: %f\n",imu.a.acceleration.x);
