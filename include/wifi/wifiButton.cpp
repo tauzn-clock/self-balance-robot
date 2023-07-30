@@ -7,7 +7,6 @@
 #include <functional>
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
-#include "./HttpPages.cpp"
 
 /* Put your SSID & Password */
 const char* ssid = "MySon";  // Enter SSID here
