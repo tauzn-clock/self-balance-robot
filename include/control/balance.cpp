@@ -1,6 +1,6 @@
 #ifndef BALANCE_INTERFACE
 #define BALANCE_INTERFACE
-#define GRAV_CONST (float) 10.25
+#define GRAV_CONST (float) 10.10
 //#define GRAV_CONST (float) 10.8
 
 #include <cmath>
@@ -11,7 +11,7 @@ public:
     //Controller Parameters
 
     float K = 0.14;//Best K: 0.07
-    float k_i = 8;//Best k_i: 20
+    float k_i = 10;//Best k_i: 20
     float k_d = 12;//Best k_d: 25
     float error = 0;
     float error_theshold = 0.7/(K*k_i); //Best Threshold: 0.7/(K*k_i)

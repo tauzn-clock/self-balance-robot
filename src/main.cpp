@@ -5,7 +5,7 @@
 #include "../include/imu/imu.cpp"
 #include "../include/wheel/wheel.cpp"
 #include "../include/control/balance.cpp"
-#include "../include/wifi/wifiButton.cpp"
+#include "../include/wifi/wifiDirection.cpp"
 
 #define DEBUG false
 
@@ -35,7 +35,8 @@ void loop()
    //delay(1000);
    //screen.clearDisplay();
    imu.getEvents(); 
-   float mag = balance.balanceController(imu.a.acceleration,imu.g.gyro,true);
+   float mag = balance.balanceController(imu.a.acceleration,imu.g.gyro);
+   //mag = 0;
    wheel1.setSpeed(mag);
    wheel2.setSpeed(mag);
 
@@ -45,6 +46,9 @@ void loop()
       Serial.printf("Accel.x: %f\n",imu.a.acceleration.x);
       Serial.printf("Accel.y: %f\n",imu.a.acceleration.y);
       Serial.printf("Accel.z: %f\n",imu.a.acceleration.z);
+      float accel_mag = imu.a.acceleration.x*imu.a.acceleration.x + imu.a.acceleration.y*imu.a.acceleration.y + imu.a.acceleration.z*imu.a.acceleration.z;
+      accel_mag = pow(accel_mag,0.5);
+      Serial.printf("Accel Mag:%f\n",accel_mag);
       //Serial.printf("Gyro.x: %f\n",imu.g.gyro.x);
       Serial.printf("Gyro.y: %f\n",imu.g.gyro.y);
       //Serial.printf("Gyro.z: %f\n",imu.g.gyro.z);
