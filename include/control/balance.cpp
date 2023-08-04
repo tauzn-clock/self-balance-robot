@@ -10,9 +10,9 @@ class BALANCE{
 public:
     //Controller Parameters
 
-    float K = 0.14;//Best K: 0.07
-    float k_i = 10;//Best k_i: 20
-    float k_d = 12;//Best k_d: 25
+    float K = 0.07;//Best K: 0.07
+    float k_i = 20;//Best k_i: 20
+    float k_d = 25;//Best k_d: 25
     float error = 0;
     float error_theshold = 0.7/(K*k_i); //Best Threshold: 0.7/(K*k_i)
     float offset = -0.263; //Best offset: -0.263

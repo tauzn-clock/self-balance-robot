@@ -105,9 +105,9 @@ void setupWifi() {
   server.begin();
   Serial.println("HTTP server started");
 }
-void loopWifi() {
+int loopWifi() {
   server.handleClient();
-  Serial.printf("%i",DIRECTION);
+  return DIRECTION;
 }
 
 #endif

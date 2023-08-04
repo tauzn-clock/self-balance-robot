@@ -5,6 +5,7 @@
 #include "../include/imu/imu.cpp"
 #include "../include/wheel/wheel.cpp"
 #include "../include/control/balance.cpp"
+#include "../include/control/manual.cpp"
 #include "../include/wifi/wifiDirection.cpp"
 
 #define DEBUG false
@@ -14,6 +15,7 @@ IMU imu;
 WHEEL wheel1(D7,D0,D1);
 WHEEL wheel2(D8,D2,D3);
 BALANCE balance;
+MANUAL manual;
 
 void setup() 
 {    
@@ -35,12 +37,15 @@ void loop()
    //delay(1000);
    //screen.clearDisplay();
    imu.getEvents(); 
-   float mag = balance.balanceController(imu.a.acceleration,imu.g.gyro);
-   //mag = 0;
-   wheel1.setSpeed(mag);
-   wheel2.setSpeed(mag);
+   float balanceMag = balance.balanceController(imu.a.acceleration,imu.g.gyro);
+   //balanceMag = 0;
+   int direction = loopWifi();
 
-   loopWifi();
+   manual.handleInput(direction);
+   //Serial.printf("%f/n",balanceMag + manual.leftWheel);
+   wheel1.setSpeed(balanceMag + manual.leftWheel);
+   wheel2.setSpeed(balanceMag + manual.rightWheel);
+
 
    if (DEBUG){
       Serial.printf("Accel.x: %f\n",imu.a.acceleration.x);
@@ -52,7 +57,7 @@ void loop()
       //Serial.printf("Gyro.x: %f\n",imu.g.gyro.x);
       Serial.printf("Gyro.y: %f\n",imu.g.gyro.y);
       //Serial.printf("Gyro.z: %f\n",imu.g.gyro.z);
-      Serial.printf("Mag %f\n",mag);
+      //Serial.printf("Mag %f\n",mag);
       Serial.printf("Angle: %f\n",balance.getTheta(imu.a.acceleration));
       Serial.println("Still Alive");
 
