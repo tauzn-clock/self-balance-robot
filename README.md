@@ -1,6 +1,6 @@
 ## Self Balance Robot
 
-This repo serves as a record of my attempt to build a self balance robot.
+This repo serves as a record of my attempt to build a self-balancing robot.
 
 ### Bill of Materials:
 - [Node MCU](https://www.ebay.co.uk/itm/263729724888)
@@ -19,11 +19,11 @@ This repo serves as a record of my attempt to build a self balance robot.
 
 ### Tips on Tuning
 - Tuning Parameters found under `/include/control/balance.cpp` are specific to my robot. These may defer if different components are used.
-- Typically, the IMU comes with a slight offset that that is specific to each component.
+- Typically, the IMU comes with a slight offset specific to each component.
 
 ### Future Improvements:
-- Mounting holes in PCB board are too small for M3 threads, requires some filing
+- Mounting holes in PCB board are too small for M3 threads, and require some filing
 - Shift wheel motor mounting points closer to the edge
-- Over extended periods, wheels does not rotate at magnitudes lower than 0.5 (Due to friction within the motor?)
+- After prolonged usage, wheels do not rotate at magnitudes lower than 0.5 (Due to friction within the motor?)
 - Include directional control based on Node MCU's Wifi Module?
   
