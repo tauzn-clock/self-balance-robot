@@ -1,6 +1,9 @@
 ## Self Balance Robot
 
-This repo serves as a record of my attempt to build a self-balancing robot.
+This repo serves as a record of my attempt to build a self-balancing robot (affectionately called rat :D ).
+
+https://github.com/tauzn-clock/self-balancing-robot/assets/72295649/7475527e-0695-4e05-951b-1d8318b3db41
+
 
 ### Bill of Materials:
 - [Node MCU](https://www.ebay.co.uk/itm/263729724888)
