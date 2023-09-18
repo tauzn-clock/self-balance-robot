@@ -11,7 +11,7 @@ https://github.com/tauzn-clock/self-balancing-robot/assets/72295649/7475527e-069
 - [L298N H-Bridge Controller + Motors](https://www.amazon.co.uk/dp/B07ZT5CCFV?psc=1&ref=ppx_yo2ov_dt_b_product_details)
 - 9V Battery
 - Ribbon Cables
-- Custom PCB Board
+- Custom PCB Board (See `PCB_files`)
 
 ### Installation
 > [!WARNING]  
